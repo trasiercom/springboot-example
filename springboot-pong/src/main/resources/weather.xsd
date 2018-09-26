@@ -1,0 +1,31 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://trasier.com/example/weather-web-service"
+           targetNamespace="http://trasier.com/example/weather-web-service" elementFormDefault="qualified">
+
+    <xs:element name="getWeatherRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cityCode" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getWeatherResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="weatherInfo" type="tns:weatherInfo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="weatherInfo">
+        <xs:sequence>
+            <xs:element name="city" type="xs:string"/>
+            <xs:element name="cityCode" type="xs:string"/>
+            <xs:element name="temperature" type="xs:string"/>
+            <xs:element name="humidity" type="xs:string"/>
+            <xs:element name="windSpeed" type="xs:string"/>
+            <xs:element name="pressure" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
