@@ -4,9 +4,15 @@ import com.trasier.springboot.ping.WeatherWsClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
+import org.springframework.web.client.RestTemplate;
 
 @Configuration
 public class WeatherConfiguration {
+
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
 
     @Bean
     public Jaxb2Marshaller marshaller() {
@@ -16,7 +22,7 @@ public class WeatherConfiguration {
     }
 
     @Bean
-    public WeatherWsClient countryClient(Jaxb2Marshaller marshaller) {
+    public WeatherWsClient weatherWsClient(Jaxb2Marshaller marshaller) {
         WeatherWsClient client = new WeatherWsClient();
         client.setDefaultUri("http://localhost:8002/ws");
         client.setMarshaller(marshaller);

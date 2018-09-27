@@ -12,13 +12,13 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class PingWeatherController {
 
-    @Autowired
-    private WeatherWsClient weatherWsClient;
-
+    private final WeatherWsClient weatherWsClient;
     private final RestTemplate restTemplate;
 
-    public PingWeatherController() {
-        restTemplate = new RestTemplate();
+    @Autowired
+    public PingWeatherController(WeatherWsClient weatherWsClient, RestTemplate restTemplate) {
+        this.weatherWsClient = weatherWsClient;
+        this.restTemplate = restTemplate;
     }
 
     @RequestMapping("/weather")
