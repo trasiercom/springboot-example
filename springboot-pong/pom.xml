@@ -23,6 +23,9 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
         <lombok.version>1.18.2</lombok.version>
+
+		<trasier-client.version>0.9.17</trasier-client.version>
+		<opentracing-spring-web.version>0.3.2</opentracing-spring-web.version>
 	</properties>
 
 	<dependencies>
@@ -41,6 +44,17 @@
 		<dependency>
 			<groupId>wsdl4j</groupId>
 			<artifactId>wsdl4j</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.opentracing.contrib</groupId>
+			<artifactId>opentracing-spring-web-autoconfigure</artifactId>
+			<version>${opentracing-spring-web.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.trasier</groupId>
+			<artifactId>trasier-client-spring-boot-opentracing</artifactId>
+			<version>${trasier-client.version}</version>
 		</dependency>
 
         <dependency>

@@ -23,7 +23,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 
-        <trasier-client.version>0.9.16</trasier-client.version>
+        <trasier-client.version>0.9.17</trasier-client.version>
         <opentracing-spring-web.version>0.3.2</opentracing-spring-web.version>
 	</properties>
 
