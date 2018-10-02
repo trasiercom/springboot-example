@@ -5,8 +5,10 @@
       <list>
         <option value="$PROJECT_DIR$/springboot-demo1/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-pong/pom.xml" />
-        <option value="$PROJECT_DIR$/springboot-ping/target/maven-archiver/pom.properties" />
         <option value="$PROJECT_DIR$/springboot-ping/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-offer/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-payment/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-booking/pom.xml" />
       </list>
     </option>
   </component>
