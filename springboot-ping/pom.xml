@@ -47,7 +47,7 @@
         <dependency>
             <groupId>com.trasier</groupId>
             <artifactId>trasier-client-spring-boot-opentracing</artifactId>
-            <version>0.9.25-SNAPSHOT</version>
+            <version>0.9.24</version>
         </dependency>
 
 		<dependency>
