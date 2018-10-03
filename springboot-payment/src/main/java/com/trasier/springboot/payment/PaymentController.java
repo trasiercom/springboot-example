@@ -17,7 +17,7 @@ public class PaymentController {
     }
 
     @GetMapping(value = "/payment/{offerId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String index(@PathVariable("offerId") String offerId) {
+    public String checkPayment(@PathVariable("offerId") String offerId) {
         if ("42".equals(offerId)) {
             return "{ \"offerId\": " + offerId + ", \"status\": \"PAID\" }";
         } else {
