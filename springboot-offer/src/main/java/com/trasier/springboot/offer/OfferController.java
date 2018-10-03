@@ -18,7 +18,7 @@ public class OfferController {
     }
 
     @GetMapping(value = "/offer", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String index(@RequestParam("product") String product) {
+    public String requestOffer(@RequestParam("product") String product) {
         return "{ \"id\": 42, \"name\": \"" + product + "\", \"price\": \"$99.00\", \"status\": \"OFFERED\" }";
     }
 
