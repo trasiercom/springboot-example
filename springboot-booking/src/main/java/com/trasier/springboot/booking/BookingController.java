@@ -18,7 +18,7 @@ public class BookingController {
     }
 
     @GetMapping(value = "/booking", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String index(@RequestParam("offerId") String offerId) {
+    public String bookOffer(@RequestParam("offerId") String offerId) {
         String result = restTemplate.getForObject("http://localhost:7001/payment/" + offerId, String.class);
         if (result.contains("PAID")) {
             return "{ \"offerId\": " + offerId + ", \"status\": \"BOOKED\" }";
