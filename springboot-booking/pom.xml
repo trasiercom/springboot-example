@@ -40,6 +40,11 @@
 
         <dependency>
             <groupId>io.opentracing.contrib</groupId>
+            <artifactId>opentracing-spring-web-starter</artifactId>
+            <version>0.3.3</version>
+        </dependency>
+        <dependency>
+            <groupId>io.opentracing.contrib</groupId>
             <artifactId>opentracing-spring-cloud-starter-jaeger</artifactId>
             <version>0.1.13</version>
         </dependency>
