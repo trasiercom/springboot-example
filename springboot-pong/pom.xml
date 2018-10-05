@@ -51,8 +51,8 @@
 		</dependency>
 		<dependency>
 			<groupId>com.trasier</groupId>
-			<artifactId>trasier-client-spring-boot-opentracing</artifactId>
-			<version>0.10.0</version>
+			<artifactId>trasier-client-opentracing-spring-interceptor-boot</artifactId>
+			<version>0.11.2</version>
 		</dependency>
 
         <dependency>
