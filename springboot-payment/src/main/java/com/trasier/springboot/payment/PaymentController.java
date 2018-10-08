@@ -9,11 +9,8 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 public class PaymentController {
-    private final RestTemplate restTemplate;
-
     @Autowired
-    public PaymentController(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
+    public PaymentController() {
     }
 
     @GetMapping(value = "/payment/{offerId}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -24,5 +21,4 @@ public class PaymentController {
             return "{ \"offerId\": " + offerId + ", \"status\": \"DECLINED\" }";
         }
     }
-
 }

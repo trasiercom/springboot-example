@@ -26,5 +26,4 @@ public class BookingController {
             return "{ \"offerId\": " + offerId + ", \"status\": \"FAILED\" }";
         }
     }
-
 }
