@@ -10,16 +10,8 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 public class OfferController {
-    private final RestTemplate restTemplate;
-
-    @Autowired
-    public OfferController(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
-    }
-
     @GetMapping(value = "/offer", produces = MediaType.APPLICATION_JSON_VALUE)
     public String requestOffer(@RequestParam("product") String product) {
         return "{ \"id\": 42, \"name\": \"" + product + "\", \"price\": \"$99.00\", \"status\": \"OFFERED\" }";
     }
-
 }
