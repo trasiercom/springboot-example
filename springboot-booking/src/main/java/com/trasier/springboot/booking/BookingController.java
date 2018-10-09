@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -23,7 +22,7 @@ public class BookingController {
         if (result.contains("PAID")) {
             return "{ \"offerId\": " + offerId + ", \"status\": \"BOOKED\" }";
         } else {
-            return "{ \"offerId\": " + offerId + ", \"status\": \"FAILED\" }";
+            throw new IllegalStateException("Offer has not been paid yet.");
         }
     }
 }
