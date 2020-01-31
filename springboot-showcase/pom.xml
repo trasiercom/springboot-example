@@ -37,7 +37,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.trasier</groupId>
-			<artifactId>trasier-client-spring-rest-starter</artifactId>
+			<artifactId>trasier-client-spring-noop-starter</artifactId>
 			<version>${trasier-client.version}</version>
 		</dependency>
 
