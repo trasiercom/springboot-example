@@ -1,2 +1,4 @@
 server:
   port: 7002
+
+logging.level.com.trasier.client.spring.noop: TRACE
