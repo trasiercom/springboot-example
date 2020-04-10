@@ -8,7 +8,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class OfferController {
     @GetMapping(value = "/offer", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String requestOffer(@RequestParam("product") String product) {
-        return "{ \"id\": 42, \"name\": \"" + product + "\", \"price\": \"$99.00\", \"status\": \"OFFERED\" }";
+    public Offer requestOffer(@RequestParam("product") String product) {
+        return Offer.builder()
+                .id(generateRandomNumber())
+                .name(product)
+                .price("$ " + generateRandomNumber() + "." + generateRandomNumber())
+                .status("OFFERED")
+                .build();
+    }
+
+    private int generateRandomNumber() {
+        return (int) (Math.random() * 100);
     }
 }
