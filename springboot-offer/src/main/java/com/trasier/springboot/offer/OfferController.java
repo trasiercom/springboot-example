@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class OfferController {
+
     @GetMapping(value = "/offer", produces = MediaType.APPLICATION_JSON_VALUE)
     public Offer requestOffer(@RequestParam("product") String product) {
         return Offer.builder()
@@ -20,4 +21,5 @@ public class OfferController {
     private int generateRandomNumber() {
         return (int) (Math.random() * 100);
     }
+
 }
