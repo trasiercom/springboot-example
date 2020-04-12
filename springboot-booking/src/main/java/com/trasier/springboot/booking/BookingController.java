@@ -22,12 +22,12 @@ public class BookingController {
 
     @PostMapping(value = "/booking", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Booking> bookOffer(@RequestParam("offerId") String offerId) {
-        String result = restTemplate.getForObject("http://localhost:7001/payment/" + offerId, String.class);
+        Payment result = restTemplate.getForObject("http://localhost:7001/payment/" + offerId, Payment.class);
         if(result != null) {
-            String status = result.equals("PAID") ? "BOOKED" : null;
+            String status = result.getStatus().equals("PAID") ? "BOOKED" : null;
             return new ResponseEntity<>(Booking.builder()
                     .offerId(Integer.parseInt(offerId))
-                    .paymentStatus(result)
+                    .paymentStatus(result.getStatus())
                     .status(status)
                     .build(), HttpStatus.OK);
         } else {

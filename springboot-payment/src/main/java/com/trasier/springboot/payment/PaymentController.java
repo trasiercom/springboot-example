@@ -14,24 +14,29 @@ import java.util.Map;
 @RestController
 public class PaymentController {
 
-    private static final Map<String, String> PAYMENT_STATUS = new HashMap<>();
+    private static final Map<Integer, Payment> PAYMENTS = new HashMap<>();
 
     @PostMapping(value = "/payment/{offerId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> payment(@PathVariable("offerId") String offerId) {
-        if (Integer.parseInt(offerId) < 80) {
-            PAYMENT_STATUS.put(offerId, "PAID");
-            return new ResponseEntity<>(HttpStatus.CREATED);
+    public ResponseEntity<Payment> payment(@PathVariable("offerId") Integer offerId) {
+        Payment.PaymentBuilder builder = Payment.builder().offerId(offerId);
+        if (offerId < 80) {
+            builder.status("PAID");
+            Payment payment = builder.build();
+            PAYMENTS.put(offerId, payment);
+            return new ResponseEntity<>(payment, HttpStatus.CREATED);
         } else {
-            PAYMENT_STATUS.put(offerId, "DECLINED");
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            builder.status("DECLINED");
+            Payment payment = builder.build();
+            PAYMENTS.put(offerId, payment);
+            return new ResponseEntity<>(payment, HttpStatus.OK);
         }
     }
 
     @GetMapping(value = "/payment/{offerId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> checkPayment(@PathVariable("offerId") String offerId) {
-        String status = PAYMENT_STATUS.get(offerId);
-        if (status != null) {
-            return new ResponseEntity<String>(status, HttpStatus.OK);
+    public ResponseEntity<Payment> checkPayment(@PathVariable("offerId") Integer offerId) {
+        Payment payment = PAYMENTS.get(offerId);
+        if (payment != null) {
+            return new ResponseEntity<>(payment, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
