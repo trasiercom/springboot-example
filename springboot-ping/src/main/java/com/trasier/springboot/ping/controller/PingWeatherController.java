@@ -30,7 +30,7 @@ public class PingWeatherController {
 
     @RequestMapping("/weather/cities/{cityCode}")
     public String index(@PathVariable("cityCode") String cityCode) {
-        String url = "http://localhost:8002/weather/cities/"+cityCode;
+        String url = "http://localhost:8002/weather/cities/" + cityCode;
         ResponseEntity<String> forEntity = restTemplate.getForEntity(url, String.class);
         return forEntity.getBody();
     }
@@ -38,7 +38,7 @@ public class PingWeatherController {
     @RequestMapping("/soap/weather")
     public String soapWeather() {
         GetWeatherResponse response = weatherWsClient.getWeather("BER");
-        return "Temperature in " +response.getWeatherInfo().getCity() +": " + response.getWeatherInfo().getTemperature();
+        return "Temperature in " + response.getWeatherInfo().getCity() + ": " + response.getWeatherInfo().getTemperature();
     }
 
 }

@@ -55,6 +55,7 @@ public class ShowcaseController {
             trasierSpan.setOutgoingData("inner - out");
             trasierSpan.setStatus(TrasierConstants.STATUS_OK);
         } finally {
+            //another possibility
 //            io.opentracing.ScopeManager scopeManager = tracer.scopeManager();
 //            if (scopeManager instanceof TrasierScopeManager) {
 //                ((TrasierScopeManager) scopeManager).activeScope().close();

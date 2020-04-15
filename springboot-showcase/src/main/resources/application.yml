@@ -3,3 +3,5 @@ server.port: 12345
 spring.mvc.view:
   prefix: /jsp/
   suffix: .jsp
+
+logging.level.com.trasier.client.spring.noop: TRACE

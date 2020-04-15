@@ -39,6 +39,17 @@
             <artifactId>spring-ws-core</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>io.opentracing.contrib</groupId>
+            <artifactId>opentracing-spring-web-starter</artifactId>
+            <version>0.3.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.trasier</groupId>
+            <artifactId>trasier-client-opentracing-spring-interceptor-boot</artifactId>
+            <version>0.13.5</version>
+        </dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
