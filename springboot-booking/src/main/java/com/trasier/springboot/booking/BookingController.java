@@ -21,18 +21,31 @@ public class BookingController {
     }
 
     @PostMapping(value = "/booking", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Booking> bookOffer(@RequestParam("offerId") String offerId) {
-        Payment result = restTemplate.getForObject("http://localhost:7001/payment/" + offerId, Payment.class);
-        if(result != null) {
-            String status = result.getStatus().equals("PAID") ? "BOOKED" : null;
-            return new ResponseEntity<>(Booking.builder()
-                    .offerId(Integer.parseInt(offerId))
-                    .paymentStatus(result.getStatus())
-                    .status(status)
-                    .build(), HttpStatus.OK);
+    public ResponseEntity<Booking> bookOffer(@RequestParam("offerId") String offerId, @RequestParam("paymentId") String paymentId) {
+        Offer offer = restTemplate.getForObject("http://localhost:7000/offer/" + offerId, Offer.class);
+        if(offer != null) {
+            //TODO validate offer vs. payment
+
+            Payment payment = restTemplate.getForObject("http://localhost:7001/payment/" + paymentId, Payment.class);
+            if(payment != null) {
+                String status = payment.getStatus().equals("PAID") ? "BOOKED" : null;
+                return new ResponseEntity<>(Booking.builder()
+                        .id(generateRandomNumber())
+                        .paymentId(Integer.parseInt(paymentId))
+                        .offerId(Integer.parseInt(offerId))
+                        .paymentStatus(payment.getStatus())
+                        .status(status)
+                        .build(), HttpStatus.OK);
+            } else {
+                throw new IllegalStateException("Offer has not been paid yet.");
+            }
         } else {
-            throw new IllegalStateException("Offer has not been paid yet.");
+            throw new IllegalStateException("Offer not found.");
         }
+    }
+
+    private int generateRandomNumber() {
+        return (int) (Math.random() * 100);
     }
 
 }

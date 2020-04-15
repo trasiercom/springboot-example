@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Payment {
 
+    private int id;
     private int offerId;
     private String status;
 

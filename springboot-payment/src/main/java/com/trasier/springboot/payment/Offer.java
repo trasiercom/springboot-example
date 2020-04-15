@@ -2,7 +2,7 @@
  * Copyright (C) Schweizerische Bundesbahnen SBB, 2020.
  */
 
-package com.trasier.springboot.offer;
+package com.trasier.springboot.payment;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -10,7 +10,9 @@ import lombok.Data;
 @Data
 @Builder
 public class Booking {
+    private int id;
     private int offerId;
+    private int paymentId;
     private String paymentStatus;
     private String status;
 }
