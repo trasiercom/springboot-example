@@ -1,2 +1,10 @@
 server:
   port: 8002
+
+trasier:
+  client:
+    accountId: ${YOUR_ACCOUNT_ID}
+    spaceKey: ${YOUR_SPACE_KEY}
+    clientId: ${YOUR_CLIENT_ID}
+    clientSecret: ${YOUR_CLIENT_SECRET}
+    systemName: pong
