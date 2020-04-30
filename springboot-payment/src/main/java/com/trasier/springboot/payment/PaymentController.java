@@ -54,6 +54,9 @@ public class PaymentController {
     public ResponseEntity<Payment> checkPayment(@PathVariable("paymentId") Integer paymentId) {
         Payment payment = PAYMENTS.get(paymentId);
         if (payment != null) {
+            if(payment.getId() < 20) {
+                throw new RuntimeException("Exception we didn't expect.");
+            }
             return new ResponseEntity<>(payment, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
