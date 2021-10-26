@@ -3,10 +3,21 @@ server:
 
 logging.level.com.trasier.client.spring.noop: TRACE
 
+## Demo config
 trasier:
+  endpoint:
+    httpEndpoint: http://localhost:8000/api/accounts/123456/spaces/default/spans
   client:
-    accountId: ${YOUR_ACCOUNT_ID}
-    spaceKey: ${YOUR_SPACE_KEY}
-    clientId: ${YOUR_CLIENT_ID}
-    clientSecret: ${YOUR_CLIENT_SECRET}
+    accountId: 123456
+    spaceKey: default
     systemName: offer
+    useAuth: false
+
+## Registered config
+#trasier:
+#  client:
+#    accountId: ${YOUR_ACCOUNT_ID}
+#    spaceKey: ${YOUR_SPACE_KEY}
+#    clientId: ${YOUR_CLIENT_ID}
+#    clientSecret: ${YOUR_CLIENT_SECRET}
+#    systemName: offer
