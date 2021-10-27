@@ -6,7 +6,7 @@ logging.level.com.trasier.client.spring.noop: TRACE
 ## Demo config
 trasier:
   endpoint:
-    httpEndpoint: http://localhost:8000/api/accounts/123456/spaces/default/spans
+    httpEndpoint: http://localhost:8000/api/accounts/{accountId}/spaces/{spaceKey}/spans
   client:
     accountId: 123456
     spaceKey: default
